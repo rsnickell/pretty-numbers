@@ -43,3 +43,9 @@ If needed, it can easily be modified to add support for additional element types
 The input element is specifically excluded from this list as the intention of the plugin
 is purely for presentation of data, not for data input.
 
+Example
+=======
+
+Check the sample directory for an example on how to use the plugin.
+
+You can also hop over to a [jsfiddle](http://jsfiddle.net/mqdvx/1/) for a live example.
