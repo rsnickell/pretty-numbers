@@ -61,30 +61,32 @@
         if( isNaN( number ) || !isFinite( number ) ) {
             numberString = 'N/A';
         } else {
-            var negative = number < 0;
-            number = negative? -number : number;
+            var absVal = Math.abs( number );
 
-            if( number < 1000 ) {
+            if( absVal < 1000 ) {
                 scale = '';
-            } else if( number < 1000000 ) {
+            } else if( absVal < 1000000 ) {
                 scale = 'K';
-                number = number/1000;
-            } else if( number < 1000000000 ) {
+                absVal = absVal/1000;
+
+            } else if( absVal < 1000000000 ) {
                 scale = 'M';
-                number = number/1000000;
-            } else if( number < 1000000000000 ) {
+                absVal = absVal/1000000;
+
+            } else if( absVal < 1000000000000 ) {
                 scale = 'B';
-                number = number/1000000000;
-            } else if( number < 1000000000000000 ) {
+                absVal = absVal/1000000000;
+
+            } else if( absVal < 1000000000000000 ) {
                 scale = 'T';
-                number = number/1000000000000;
+                absVal = absVal/1000000000000;
             }
+
             var maxDecimals = 0;
-            if( number < 10 && scale != '' ) {
+            if( absVal < 10 && scale != '' ) {
                 maxDecimals = 1;
             }
-            number = negative ? -number : number;
-            numberString = number.toFixed( maxDecimals );
+            numberString = absVal.toFixed( maxDecimals );
             numberString += scale
         }
         return numberString;
